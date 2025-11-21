@@ -1,6 +1,6 @@
-% clear;
+clear;
 
-addpath data functions modelling simulink quanser NI
+addpath data functions modelling helpers controllers MPC LQR simulink quanser NI testing
 
 %% Symbolic variables
 syms t E(t) Psi(t) Theta(t) F_a(t) F_b(t)
@@ -35,17 +35,46 @@ Encoder_res = 2*pi/500;         % Encoder resolution (rad/wheel count)
 DAC_Vres    = 20/((2^16)-1);    % DAC voltage resolution (V/bit)
 DAC_lim_u   = 10;               % DAC upper saturation limit (V)
 DAC_lim_l   = 0;                % DAC enforced lower saturation limit (V)
+amp_sat_u   = 10;               % Power amplifier upper saturation limit (V)
+amp_sat_l   = 0;                % Power amplifier lower saturation limit (V)
+
+PitchAxisData = readtable('PitchAxisData.txt');
+ElevAxisData  = readtable('ElevAxisData.txt');
+% Constraints
+p_lim_u = max(PitchAxisData.Var1)*pi/180; % Upper pitch axis limit (rad)
+p_lim_l = min(PitchAxisData.Var1)*pi/180; % Lower pitch axis limit (rad)
+e_lim_u = max(ElevAxisData.Var1)*pi/180;  % Upper elevation axis limit (rad)
+e_lim_l = min(ElevAxisData.Var1)*pi/180;  % Lower elevation axis limit (rad)
 
 %% Initialise models into workspace
 evalc('RigidBodyModel_V');
 evalc('CombinedModel_V');
 evalc('FansModel');
 
-%% Global controller parameters
 Ts = 0.015;
 
-%% Simulation Initial Conditions
-E0 = deg2rad(-20);
+sysdt_rb = c2d(sys_rb, Ts, 'zoh');
+sysdt_comb = c2d(sys_comb, Ts, 'zoh');
+
+% Nonlinear model needs Va,b at U_e for equilibrium
+xUe = [zeros(6, 1); U_e_real; U_e_real];
+U_e_vec = [U_e_real; U_e_real];
+
+xf0 = [F_e_real; zeros(fanModelOrder-1, 1)];
+
+%% Simulation Initial Conditions and Limits
+E0 = deg2rad(-22);
+P0 = deg2rad(0);
+T0 = deg2rad(0);
+
+x0 = [E0; P0; T0; zeros(5, 1)];
+
+%% Setup LGQ Controller
+LQR_I;
+estimate_sensor_cov;
+
+%% Setup MPC MEX
+% setupMPC;
 
 %% Setup Quanser Model
 setup_lab_heli_3d;

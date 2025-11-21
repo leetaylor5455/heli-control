@@ -139,7 +139,7 @@ K
 par = [Kf;m_h;m_w;m_f;m_b;Lh;La;Lw;g_real]; 
 
 %Initial condition
-X0=[-15/180*pi;0;0;0;0;0];
+X0=[E0;P0;T0;0;0;0];
 %% Feed-forward input:
 
 Vop=0.5*g_real*(Lw*m_w-2*La*m_f)/(La*Kf);
