@@ -32,23 +32,23 @@ else
 end
 
 
-% figure;
-% title('Output Logs')
-% 
-% subplot(3, 1, 1);
-% plot(ttTest, pitchTest)
-% % xlabel('Time (s)');
-% ylabel('Pitch (deg)');
-% 
-% subplot(3, 1, 2);
-% plot(ttTest, elevTest)
-% % xlabel('Time (s)');
-% ylabel('Elevation (deg)');
-% 
-% subplot(3, 1, 3);
-% plot(ttTest, travTest)
+figure;
+title('Output Logs')
+
+subplot(3, 1, 1);
+plot(ttTest, pitchTest)
 % xlabel('Time (s)');
-% ylabel('Travel (deg)');
+ylabel('Pitch (deg)');
+
+subplot(3, 1, 2);
+plot(ttTest, elevTest)
+% xlabel('Time (s)');
+ylabel('Elevation (deg)');
+
+subplot(3, 1, 3);
+plot(ttTest, travTest)
+xlabel('Time (s)');
+ylabel('Travel (deg)');
 
 s_const = [pitchTest elevTest travTest];
 

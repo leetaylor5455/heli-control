@@ -2,7 +2,7 @@
 sys = sys_comb;
 
 A_bar = sys.A;
-A_bar(6, 2) = -A_bar(6, 2);
+% A_bar(6, 2) = -A_bar(6, 2);
 B_bar = sys.B;
 C_bar = sys.C;
 D_bar = sys.D;
@@ -31,8 +31,8 @@ sysdt_bar = c2d(ss(A_bar, B_bar, C_bar, D_bar), Ts, 'zoh');
 
 
 %% Cost
-Cost_rb = [10; 1; 5 
-           10; 10; 20]'; % Cost for rigid body states
+Cost_rb = [10; 1; 10 
+           10; 1; 15]'; % Cost for rigid body states
 
 if nx > 6
     Cost_V = [0 0]; % Cost for the voltages

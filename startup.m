@@ -1,6 +1,6 @@
 clear;
 
-addpath data functions modelling helpers controllers MPC LQR simulink quanser NI testing
+% addpath data functions modelling helpers controllers MPC LQR simulink quanser NI testing
 
 %% Symbolic variables
 syms t E(t) Psi(t) Theta(t) F_a(t) F_b(t)
@@ -51,6 +51,7 @@ evalc('RigidBodyModel_V');
 evalc('CombinedModel_V');
 evalc('FansModel');
 
+% Ts = 0.015;
 Ts = 0.015;
 
 sysdt_rb = c2d(sys_rb, Ts, 'zoh');
@@ -70,12 +71,17 @@ T0 = deg2rad(0);
 x0 = [E0; P0; T0; zeros(5, 1)];
 
 %% Setup LGQ Controller
+IntegralActionModel;
 LQR_I;
 estimate_sensor_cov;
+
+%% Reference gen
+FIR_reference;
 
 %% Setup MPC MEX
 % setupMPC;
 
 %% Setup Quanser Model
-setup_lab_heli_3d;
+% setup_lab_heli_3d;
 
+disp('--------------- Startup Done ---------------')
