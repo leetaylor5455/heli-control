@@ -28,23 +28,6 @@ D_bar = [D; zeros(nz, nu)];
 
 sysdt_bar = c2d(ss(A_bar, B_bar, C_bar, D_bar), Ts, 'zoh');
 
-%% Cost
-Cost_rb = [10; 0; 10 
-           5; 0; 10]'; % Cost for rigid body states
-
-if nx > 6
-    Cost_V = [0 0]; % Cost for the voltages
-else
-    Cost_V = [];
-    
-end
-
-Cost_I = [10 20]; % Integral costs
-
-Q_bar = diag([Cost_rb Cost_V Cost_I]);
-R_bar = diag(0.1*ones(1, 2));
-
-K_lqr = lqr(sysdt_bar, Q_bar, R_bar);
 
 x0_bar = [E0; P0; T0; zeros(nx+nz-3, 1)];
 

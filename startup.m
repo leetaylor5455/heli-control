@@ -22,8 +22,8 @@ l1 = 0.110;    % distance from helicopter arm to elevation axis (m);
 l2 = 0.070;    % distance from fan centres to pitch axis (m);
 l3 = 0.108;    % distance from counterweight to elevation axis (m);
 g_real = 9.807;
-ks = 0;  % pitch axis spring coefficient
-kd = 0;  % pitch axis damping coefficient
+ks = 0.0005;  % pitch axis spring coefficient
+kd = 0.0002;  % pitch axis damping coefficient
 % ks = 0.0015;  % pitch axis spring coefficient
 % kd = 0.0005;  % pitch axis damping coefficient
 
@@ -70,13 +70,23 @@ T0 = deg2rad(0);
 
 x0 = [E0; P0; T0; zeros(5, 1)];
 
-%% Setup LGQ Controller
+%% Setup LGQ Controller Model
 IntegralActionModel;
-LQR_I;
 estimate_sensor_cov;
 
 %% Reference gen
 FIR_reference;
+Optimal_reference;
+
+ref_v = 1; % Reference generator variant (1 is optimal, 2 is FIR)
+
+if ref_v == 1
+    LQR_gains_OPT;
+else
+    LQR_gains_FIR;
+end
+
+var_config_vcdo; % Ref gen variants
 
 %% Setup MPC MEX
 % setupMPC;
