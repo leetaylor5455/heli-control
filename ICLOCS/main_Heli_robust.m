@@ -46,12 +46,12 @@ options= problem.settings(50);                  % Get options and solver setting
 
 %% Series
 tt=solution.T;
-E = (180/pi)*speval(solution,'X',1,tt);
-P = (180/pi)*speval(solution,'X',2,tt);
-T = (180/pi)*speval(solution,'X',3,tt);
+Ett = (180/pi)*speval(solution,'X',1,tt);
+Ptt = (180/pi)*speval(solution,'X',2,tt);
+Ttt = (180/pi)*speval(solution,'X',3,tt);
 
-Fa = k_fan*speval(solution,'X',7,tt);
-Fb = k_fan*speval(solution,'X',8,tt);
+Fatt = k_fan*speval(solution,'X',7,tt);
+Fbtt = k_fan*speval(solution,'X',8,tt);
 
 u1 = speval(solution,'U',1,tt);
 u2 = speval(solution,'U',2,tt);
@@ -60,7 +60,7 @@ u2 = speval(solution,'U',2,tt);
 figure
 subplot(3,1,1)
 hold on
-plot(tt,E,'b-' ,'LineWidth',2)
+plot(tt,Ett,'b-' ,'LineWidth',2)
 plot([solution.T(1,1); solution.tf],(180/pi)*[problem.states.xl(1), problem.states.xl(1)],'b--' )
 plot([solution.T(1,1); solution.tf],(180/pi)*[problem.states.xu(1), problem.states.xu(1)],'b--' )
 xlabel('Time [s]')
@@ -68,14 +68,14 @@ ylabel('Elevation (rad)')
 grid on
 
 subplot(3,1,2)
-plot(tt,P,'r-' ,'LineWidth',2)
+plot(tt,Ptt,'r-' ,'LineWidth',2)
 xlabel('Time [s]')
 ylabel('Pitch (rad)')
 grid on
 
 subplot(3,1,3)
 hold on
-plot(tt,T,'g-' ,'LineWidth',2)
+plot(tt,Ttt,'g-' ,'LineWidth',2)
 plot([solution.T(1,1); solution.tf],(180/pi)*[problem.states.xl(3), problem.states.xl(3)],'g--' )
 plot([solution.T(1,1); solution.tf],(180/pi)*[problem.states.xu(3), problem.states.xu(3)],'g--' )
 xlabel('Time [s]')
@@ -85,8 +85,8 @@ grid on
 %% Plot fan forces
 figure
 hold on
-plot(tt, Fa, 'g', 'LineWidth', 2);
-plot(tt, Fb, 'b', 'LineWidth', 2);
+plot(tt, Fatt, 'g', 'LineWidth', 2);
+plot(tt, Fbtt, 'b', 'LineWidth', 2);
 xlabel('Time [s]')
 ylabel('Fan Force (N)')
 legend('Fa', 'Fb')

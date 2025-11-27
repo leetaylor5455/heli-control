@@ -15,3 +15,8 @@ Q_bar = diag([Cost_rb Cost_V Cost_I]);
 R_bar = diag(0.1*ones(1, 2));
 
 K_lqr = lqr(sysdt_bar, Q_bar, R_bar);
+
+%% Feedforward Gain
+
+C_r = eye(10);
+K_r = -eye(2) / (C_r * inv(A_bar - B_bar*K_lqr) * B_bar);

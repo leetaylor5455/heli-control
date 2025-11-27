@@ -49,11 +49,3 @@ R = diag(0.1*ones(1, 2));
 K_lqr = lqr(sysdt_bar, Q, R);
 
 x0_bar = [E0; P0; T0; zeros(nx+nz-3, 1)];
-
-%% Feedforward Gain
-
-% % Controlled outputs
-% C_r = [1 zeros(1, nx+nz-1)
-%        0 0 1 zeros(1, nx+nz-3)];
-% 
-% K_r = (C_r * inv(A_bar - B_bar * K_lqr) * B_bar) \ -eye(2);

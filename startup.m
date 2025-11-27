@@ -51,8 +51,8 @@ evalc('RigidBodyModel_V');
 evalc('CombinedModel_V');
 evalc('FansModel');
 
-% Ts = 0.015;
 Ts = 0.015;
+% Ts = 0.025;
 
 sysdt_rb = c2d(sys_rb, Ts, 'zoh');
 sysdt_comb = c2d(sys_comb, Ts, 'zoh');
@@ -86,7 +86,7 @@ else
     LQR_gains_FIR;
 end
 
-var_config_vcdo; % Ref gen variants
+% var_config_vcdo; % Ref gen variants
 
 %% Setup MPC MEX
 % setupMPC;

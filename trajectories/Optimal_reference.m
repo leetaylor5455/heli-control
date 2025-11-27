@@ -22,6 +22,8 @@ Tf = 0;
 main_Heli_robust;
 % main_Heli_fast;
 
+T0 = 0; % Ensure T0 goes back to 0 to align with trajectory target
+
 % iterate through states and populate trajectory
 t_in_opt = solution.T;
 t_in_opt_time = max(t_in_opt);
