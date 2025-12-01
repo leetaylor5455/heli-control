@@ -70,8 +70,8 @@ problem.states.x0u=[x0];
 
 Emin = deg2rad(-10);
 Emax = deg2rad(10);
-Pmin = deg2rad(-20);
-Pmax = deg2rad(20);
+Pmin = deg2rad(-30);
+Pmax = deg2rad(30);
 Tmin = deg2rad(-20);
 Tmax = deg2rad(200);
 
@@ -159,8 +159,11 @@ problem.data.g = opts.g;
 problem.data.l1 = opts.l1;
 problem.data.l2 = opts.l2;
 problem.data.l3 = opts.l3;
-problem.data.kd = opts.kd;
-problem.data.ks = opts.ks;
+problem.data.kdp = opts.kdp;
+problem.data.ksp = opts.ksp;
+problem.data.kde = opts.kde;
+problem.data.kse = opts.kse;
+problem.data.kdt = opts.kdt;
 problem.data.a = opts.a;
 problem.data.b = opts.b;
 
@@ -213,6 +216,7 @@ function stageCost=L_unscaled(x,xr,u,ur,p,t,vdat)
 % stageCost = 0*t;
 
 stageCost = u(:,1).*u(:,1) + u(:,2).*u(:,2);
+% stageCost = u(:,1) + u(:,2);
 
 %------------- END OF CODE --------------
 

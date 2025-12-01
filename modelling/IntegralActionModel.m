@@ -26,7 +26,9 @@ C_bar = [C zeros(3, nz)
 
 D_bar = [D; zeros(nz, nu)];
 
-sysdt_bar = c2d(ss(A_bar, B_bar, C_bar, D_bar), Ts, 'zoh');
+sys_bar = ss(A_bar, B_bar, C_bar, D_bar);
+
+sysdt_bar = c2d(sys_bar, Ts, 'zoh');
 
 
 x0_bar = [E0; P0; T0; zeros(nx+nz-3, 1)];

@@ -5,8 +5,11 @@ T0 = 0;
 Tf = deg2rad(180);
 
 % Run optimisation
-main_Heli_robust;
-% main_Heli_fast;
+if strcmp(tune, 'fast')
+    main_Heli_fast;
+else
+    main_Heli_robust;    
+end
 
 % iterate through states and populate trajectory
 t_out_opt = solution.T;
@@ -19,8 +22,11 @@ T0 = Tf;
 Tf = 0;
 
 % Run optimisation
-main_Heli_robust;
-% main_Heli_fast;
+if strcmp(tune, 'fast')
+    main_Heli_fast;
+else
+    main_Heli_robust;    
+end
 
 T0 = 0; % Ensure T0 goes back to 0 to align with trajectory target
 
