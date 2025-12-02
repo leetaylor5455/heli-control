@@ -58,6 +58,8 @@ x_opt_ref = [zeros(8, N_init),...
     zeros(8, N_wait)
 ];
 
+x_opt_ref_i = [x_opt_ref; zeros(2, size(x_opt_ref, 2))];
+
 if ~(nx_ref > 6)
     x_opt_ref = [x_opt_ref; zeros(2, size(x_opt_ref, 2))];
 end

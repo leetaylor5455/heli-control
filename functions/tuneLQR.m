@@ -1,8 +1,8 @@
-function [K_lqr] = tuneLQR(tune, sys)
+function [K_lqr] = tuneLQR(test, sys)
 %TUNELQR Summary of this function goes here
 %   Detailed explanation goes here
 arguments (Input)
-    tune
+    test
     sys
 end
 
@@ -13,8 +13,8 @@ end
 
     [nx, ~] = size(B);
 
-    if strcmp(tune, 'robust')
-        %% Cost Test -- Robust
+    if strcmp(test, 'test')
+        %% Cost Test
         % Cost_rb = [1; 0; 20 
         %            10; 0; 50]'; % Cost for rigid body states
         Cost_rb = [1; 0; 200 
@@ -29,9 +29,9 @@ end
         
         Cost_I = [50 50]; % Integral costs
     else
-        %% Cost Test -- Fast
-        Cost_rb = [10; 1; 20 
-                  5; 1; 10]'; % Cost for rigid body states
+        %% Cost Sim
+        Cost_rb = [10; 0; 20 
+                  5; 100; 100]'; % Cost for rigid body states
         
         if nx > 8
             Cost_V = [0 0]; % Cost for the voltages

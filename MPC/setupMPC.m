@@ -23,24 +23,32 @@ xmax = 1e9*ones(nx, 1);
 % xmax = Inf*ones(nx, 1);
 
 % Objective function
-% Q = diag([10 0 10 0.5 2 2 0 0]);
-Q = Q_bar;
+Q_rb = [10; 0;   20 
+        5;  100; 100]'; % Cost for rigid body states
+Q_V = [0 0]; % Cost for the voltages
+Q_I = [5 5]; % Integral costs
+% Q_I = [0 0]; % Integral costs
+
+Q = diag([Q_rb Q_V Q_I]);
+R = diag(0.1*ones(1, 2));
 
 % R = 0.1*eye(nu);
-R = R_bar;
-[QN,~,~] = idare(Ad, Bd, Q, R);
+% [QN,~,~] = idare(Ad, Bd, Q, R);
+QN = Q;
 
 % Initial and ref states
 % Initial condition
 % x0 = zeros(nx, 1);
 xr = [0; 0; 0; zeros(nx-3, 1)];
 
-N = round(2 / Ts); % Time horizon
+N = round(1 / Ts); % Time horizon
 % N = 3;
 
 % Linear objective
 P = blkdiag(kron(speye(N), Q), QN, kron(speye(N), R));
 q = [repmat(-Q*xr, N, 1); -QN*xr; zeros(N*nu, 1)];
+
+% q is in a stacked vector same as z, so reshape x_opt
 
 % Linear dynamics equality constraints
 Ax = kron(speye(N+1), -speye(nx)) + kron(sparse(diag(ones(N, 1), -1)), Ad);
@@ -61,8 +69,8 @@ u = [ueq; uineq];
 
 prob = osqp;
 settings.verbose = 1;
-settings.eps_abs = 1e-3;
-settings.eps_rel = 1e-3;
+settings.eps_abs = 1e-4;
+settings.eps_rel = 1e-4;
 settings.max_iter = 20000;
 settings.warm_start = 1;
 % Setup workspace
