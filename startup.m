@@ -40,14 +40,14 @@ else
 end
 
 g_real = 9.807;
-ksp = 0.0005;  % pitch axis spring coefficient
-kdp = 0.0005;  % pitch axis damping coefficient
+ksp = 0.0005; % pitch axis spring coefficient
+kdp = 0.0005; % pitch axis damping coefficient
 % kde = 0.014;   % elevation axis damping
-kde = 0.0014;   % elevation axis damping
+kde = 0.0014; % elevation axis damping
 % kse = -g_real/E0 * (2*m1*l1 - l3*m2); % elevation axis spring
 % kse = 0.02; % elevation axis spring
 kse = 0.0002; % elevation axis spring
-kdt = 0.001;
+kdt = 0.0004;
 
 mech_vars = [l_1, l_2, l_3, m_1, m_2, g,      k_sp, k_dp, k_de, k_se, k_dt];
 mech_vals = [l1,  l2,  l3,  m1,  m2,  g_real, ksp,  kdp,  kde,  kse,  kdt];
@@ -94,16 +94,18 @@ IntegralActionModel;
 
 %% Reference gen
 tune = 'robust';
-FIR_reference;
-Optimal_reference;
+% FIR_reference;
+% Optimal_reference;
+
+config_opt_robust;
 
 ref_v = 1; % Reference generator variant (1 is optimal, 2 is FIR)
 
-if ref_v == 1
-    LQR_gains_OPT;
-else
-    LQR_gains_FIR;
-end
+% if ref_v == 1
+%     LQR_gains_OPT;
+% else
+%     LQR_gains_FIR;
+% end
 
 var_config_vcdo; % Ref gen variants
 

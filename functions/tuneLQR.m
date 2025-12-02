@@ -15,8 +15,10 @@ end
 
     if strcmp(tune, 'robust')
         %% Cost Test -- Robust
-        Cost_rb = [1; 0; 10 
-                   10; 0; 20]'; % Cost for rigid body states
+        % Cost_rb = [1; 0; 20 
+        %            10; 0; 50]'; % Cost for rigid body states
+        Cost_rb = [1; 0; 200 
+                   1; 10; 100]'; % Cost for rigid body states
 
         if nx > 8
             Cost_V = [0 0]; % Cost for the voltages
@@ -25,7 +27,7 @@ end
         
         end
         
-        Cost_I = [5 5]; % Integral costs
+        Cost_I = [50 50]; % Integral costs
     else
         %% Cost Test -- Fast
         Cost_rb = [10; 1; 20 
