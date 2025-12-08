@@ -1,0 +1,8 @@
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/CMakeFiles/emosqpstatic.dir
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/CMakeFiles/example.dir
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/CMakeFiles/edit_cache.dir
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/CMakeFiles/rebuild_cache.dir
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/src/osqp/CMakeFiles/edit_cache.dir
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/src/osqp/CMakeFiles/rebuild_cache.dir
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/include/CMakeFiles/edit_cache.dir
+F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/include/CMakeFiles/rebuild_cache.dir

@@ -41,7 +41,7 @@ end
 
 g_real = 9.807;
 ksp = 0.0005; % pitch axis spring coefficient
-kdp = 0.07; % pitch axis damping coefficient
+kdp = 0.0005; % pitch axis damping coefficient
 % kde = 0.014;   % elevation axis damping
 kde = 0.0014; % elevation axis damping
 % kse = -g_real/E0 * (2*m1*l1 - l3*m2); % elevation axis spring
@@ -111,11 +111,11 @@ ref_v = 1; % Reference generator variant (1 is optimal, 2 is FIR)
 var_config_vcdo; % Ref gen variants
 
 %% Kalman filter
-estimate_sensor_cov;
-estimate_process_noise;
+% estimate_sensor_cov;
+% estimate_process_noise;
 
 %% Setup MPC MEX
-setupMPC;
+% setupMPC;
 
 %% Setup Quanser Model
 % setup_lab_heli_3d;
