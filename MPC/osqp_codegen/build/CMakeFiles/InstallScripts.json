@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/cmake_install.cmake",
-		"F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/src/osqp/cmake_install.cmake",
-		"F:/Documents/GitHub/heli-control/MPC/osqp_codegen/build/include/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
