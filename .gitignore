@@ -25,6 +25,7 @@ helpsearch*/
 slprj/
 sccprj/
 codegen/
+MPC/osqp_codegen
 
 # Cache files
 *.slxc
