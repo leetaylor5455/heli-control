@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 
 \title{ELE438{---}Lab Report}
-\author{Lee Taylor}
+\author{RN: 200327363}
 \date{December 2025}
 
 \usepackage{url}
@@ -14,18 +14,10 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{textcomp}
 
-\usepackage[
-    sorting=none
-]{biblatex}
-\addbibresource{Hopper.bib}
-
-\DeclareFieldFormat{urldate}{[Online; accessed~#1]}
-\renewbibmacro*{url+urldate}{%
-  \printfield{url}%
-  \setunit{\addspace}%
-  \printurldate
-}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
 
 \lstset{language=Matlab,keywordstyle={\bfseries \color{blue}}}
 \NewDocumentCommand{\codeword}{v}{%
@@ -60,5 +52,7 @@
 
 \input{sections/modelling.tex}
 \input{sections/control.tex}
+\pagebreak
+\input{sections/results.tex}
 
 \end{document}

@@ -80,42 +80,42 @@ R_kalman = enforceMinVariance(R_kalman, minVar);
 
 % [h,p] = kstest((x_detr-mean(x_detr))/std(x_detr))  % Kolmogorov-Smirnov test
 
-figure;
-title('Output Logs')
-
-subplot(3, 1, 1);
-plot(ttTest, elevTest)
+% figure;
+% title('Output Logs')
+% 
+% subplot(3, 1, 1);
+% plot(ttTest, elevTest)
+% % xlabel('Time (s)');
+% ylabel('Elevation (deg)');
+% 
+% subplot(3, 1, 2);
+% plot(ttTest, pitchTest)
+% % xlabel('Time (s)');
+% ylabel('Pitch (deg)');
+% 
+% subplot(3, 1, 3);
+% plot(ttTest, travTest)
 % xlabel('Time (s)');
-ylabel('Elevation (deg)');
-
-subplot(3, 1, 2);
-plot(ttTest, pitchTest)
+% ylabel('Travel (deg)');
+% 
+% figure;
+% 
+% title('Output Integrals')
+% 
+% subplot(3, 1, 1);
+% plot(ttTest, eiTest)
+% % xlabel('Time (s)');
+% ylabel('Elevation (deg)');
+% 
+% subplot(3, 1, 2);
+% plot(ttTest, piTest)
+% % xlabel('Time (s)');
+% ylabel('Pitch (deg)');
+% 
+% subplot(3, 1, 3);
+% plot(ttTest, tiTest)
 % xlabel('Time (s)');
-ylabel('Pitch (deg)');
-
-subplot(3, 1, 3);
-plot(ttTest, travTest)
-xlabel('Time (s)');
-ylabel('Travel (deg)');
-
-figure;
-
-title('Output Integrals')
-
-subplot(3, 1, 1);
-plot(ttTest, eiTest)
-% xlabel('Time (s)');
-ylabel('Elevation (deg)');
-
-subplot(3, 1, 2);
-plot(ttTest, piTest)
-% xlabel('Time (s)');
-ylabel('Pitch (deg)');
-
-subplot(3, 1, 3);
-plot(ttTest, tiTest)
-xlabel('Time (s)');
-ylabel('Travel (deg)');
+% ylabel('Travel (deg)');
 
 function R2 = enforceMinVariance(R, minVar)
 % Ensure diagonal entries are at least minVar and R is symmetric

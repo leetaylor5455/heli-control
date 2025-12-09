@@ -1,6 +1,16 @@
-\contentsline {section}{\numberline {1}Modelling}{2}{}%
-\contentsline {subsection}{\numberline {1.1}First Order Input Response}{2}{}%
-\contentsline {subsubsection}{\numberline {1.1.1}Model Derivation}{2}{}%
-\contentsline {subsubsection}{\numberline {1.1.2}Experiment on the Real System}{2}{}%
-\contentsline {subsection}{\numberline {1.2}Minor Model Improvements}{3}{}%
-\contentsline {section}{\numberline {2}Control Design}{4}{}%
+\contentsline {section}{\numberline {1}Modelling}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}First Order Input Response}{2}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Model Derivation}{2}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Experiment on the Real System}{2}{subsubsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.2}Minor Model Improvements}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Control Design}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Integral Action Model}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Kalman Filter Tuning}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Reference Generation}{4}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}FIR Method}{4}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Nonlinear Optimisation Method}{5}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Feedback and Feedforward Gains}{5}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Results}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Discussion}{7}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Travel Bound Violation}{7}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Optimal Reference Generator}{7}{subsubsection.3.1.2}%

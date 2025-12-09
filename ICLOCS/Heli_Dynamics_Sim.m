@@ -44,9 +44,9 @@ dx(:,1) = Edot;
 dx(:,2) = Pdot;
 dx(:,3) = Tdot;
 
-dx(:,4) = -((Jt*sin(2*E).*Tdot.^2)/2 - l1.*cos(P).*(2*b + Va*a*ka + Vb*a*ka) + g*cos(E)*(2*l1*m1 - l3*m2) + kde*Edot + kse*E)/Je;
+dx(:,4) = -(Jt*cos(E).*sin(E).*Tdot.^2 - l1.*cos(P).*(2*b + Va*a*ka + Vb*a*ka) + g*cos(E)*(2*l1*m1 - l3*m2) + kde*Edot + kse*E)/Je;
 dx(:,5) = -(kdp*Pdot  + ksp*P  - Va*a*ka*l2 + Vb*a*ka*l2)/Jp;
-dx(:,6) = (l1*sin(P).*(b + Va*a*ka) + l1*sin(P).*(b + Vb*a*ka) + 2*Jt*sin(E).*Tdot.*Edot - kdt*Tdot)./(Jt*cos(E));
+dx(:,6) = (l1*sin(P).*cos(E).*(2*b + Va*a*ka + Vb*a*ka) + 2*Jt*cos(E).*sin(E).*Tdot.*Edot - kdt*Tdot)./(Jt*cos(E).^2);
 dx(:,7) = Ua - Va;
 dx(:,8) = Ub - Vb;
 

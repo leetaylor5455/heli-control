@@ -1,5 +1,4 @@
-close all;
-
+% close all;
 %% Pitch Axis
 root_dir = matlab.project.rootProject().RootFolder;
 p_sim_fn = sprintf('%s\\data\\Pitch_Sample.xlsx', root_dir);
@@ -67,26 +66,26 @@ Qv = 0.5*Qx;
 
 Q_kalman = diag([Qx, Qv, 1 1, 0.1, 0.1])
 
-figure;
-hold on; grid on;
-plot(ttTest, p_log_smoothed)
-plot(ttTest, x_log_li(2, :))
-legend('Test', 'Model')
-title('Pitch model vs Test')
-
-figure;
-hold on; grid on;
-plot(ttTest, e_log_smoothed)
-plot(ttTest, x_log_li_e(1, :))
-legend('Test', 'Model')
-title('Elevation model vs Test')
+% figure;
+% hold on; grid on;
+% plot(ttTest, p_log_smoothed)
+% plot(ttTest, x_log_li(2, :))
+% legend('Test', 'Model')
+% title('Pitch model vs Test')
+% 
+% figure;
+% hold on; grid on;
+% plot(ttTest, e_log_smoothed)
+% plot(ttTest, x_log_li_e(1, :))
+% legend('Test', 'Model')
+% title('Elevation model vs Test')
 
 
 % figure;
 % plotTimeseries(ttTest, x_log_li(1:3, :), 'Title', 'x_{comb} Linear - Positions')
 % 
-figure;
-plotTimeseries(ttTest, x_log_nl(1:3, :), 'Title', 'x_{comb} Nonlinear - Positions')
+% figure;
+% plotTimeseries(ttTest, x_log_nl(1:3, :), 'Title', 'x_{comb} Nonlinear - Positions')
 
 % figure;
 % plotTimeseries(ttTest, uTest, 'Title', 'Inputs')

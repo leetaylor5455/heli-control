@@ -1,10 +1,10 @@
 \section{Modelling}
 
 \subsection{First Order Input Response}
-The original LTI model of the helicopter assumes control of the elevation and pitch rates ($\dot{E}(t)$ and $\dot{\Psi}(t)$) as if the steady-state fan force at a given input is applied instantaneously, this is not the case in the real system as the fans have a finite response time.
+The original LTI model of the helicopter assumes control of the elevation and pitch rates ($\dot{E}(t)$ and $\dot{\Psi}(t)$) as if the steady-state fan force is applied instantaneously; this is not the case in the real system as the fans have a finite response time.
 
 \subsubsection{Model Derivation}
-New states $V_a(t)$ and $V_b(t)$ were added to represent the \emph{actual inputs}, each modelled as a first order response with unit gain and time constant $\tau_F$ equal to that of the fans' first order approximation---this was determined with system identification on the dynamic response load cell data to be $\tau_F = 0.87 \, \mathrm{s}$. In the combined model, the new states substitute for the terms involving $U_{a,b}(t)$, and control inputs are applied exclusively to them rather than on the pitch and elevation rates. This yields the combined LTI model ($x = x(t), \; u = u(t), \; y = y(t)$ for compactness)
+New states $V_a(t)$ and $V_b(t)$ were added to represent the \emph{actual inputs}, each modelled as a first order response with unit gain and time constant $\tau_F$ equal to that of the fans' first order approximation, $\tau_F = 0.87 \, \mathrm{s}$. This was determined with system identification on the dynamic response load cell data. In the combined model, the new states substitute for the terms involving $U_{a,b}(t)$, and control inputs are applied exclusively to them rather than on the pitch and elevation rates. This yields the combined LTI model ($x = x(t), \; u = u(t), \; y = y(t)$ for compactness)
 
 \[
 \dot{\bar{x}} = \bar{A} \bar{x} + \bar{B} u, \qquad y = C \bar{x} + D u
@@ -25,8 +25,8 @@ where the modified elements denoted by $\bar{\cdot}$ are
 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
 -\frac{k_E}{J_E} & 0 & 0 & -\frac{c_E}{J_E} & 0 & 0 & \frac{l_1 \, \alpha \,k_a}{J_E }  & \frac{l_1 \, \alpha \,k_a }{J_E } \\
-0 & -\frac{k_P }{J_{\Psi } } & 0 & 0 & -\frac{c_P }{J_{\Psi } } & 0 & \frac{l_2 \, \alpha \,k_a}{J_{\Psi } }  & -\frac{l_2 \,\alpha \,k_a}{J_{\Psi } } \\
-0 & \frac{- 2 l_1 \,{\left(\alpha \, k_a \, V_e + \beta \right)}}{J_{\Theta } } & 0 & 0 & 0 & -\frac{c_T}{J_{\Theta}} & 0 & 0\\
+0 & -\frac{k_{\Psi} }{J_{\Psi } } & 0 & 0 & -\frac{c_{\Psi} }{J_{\Psi } } & 0 & \frac{l_2 \, \alpha \,k_a}{J_{\Psi } }  & -\frac{l_2 \,\alpha \,k_a}{J_{\Psi } } \\
+0 & \frac{- 2 l_1 \,{\left(\alpha \, k_a \, V_e + \beta \right)}}{J_{\Theta } } & 0 & 0 & 0 & -\frac{c_{\Theta}}{J_{\Theta}} & 0 & 0\\
 0 & 0 & 0 & 0 & 0 & 0 & -\frac{1}{\tau_F} & 0\\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & -\frac{1}{\tau_F}
 \end{bmatrix}, \qquad
@@ -42,33 +42,31 @@ where the modified elements denoted by $\bar{\cdot}$ are
 \end{bmatrix}
 \]
 
-\noindent \\ With $V_e = U_e$. Note that spring and damping coefficients have been added to the elevation axis, as well as damping only to the travel axis, following this the notation for the spring coefficients is $k_x$, and damping $c_x$.
+\noindent \\ With $V_e = U_e$. Note that spring and damping effects have been added to the elevation axis, as well as damping to the travel axis, following this the notation for the spring coefficients is $k_x$, and damping $c_x$.
 
-An equivalent method for this modification is to make the additional states the fan forces $F_{a,b}$, rather than delayed inputs, this was experimented with. In that case, the original model in Mini Assigment 1---before the ($\alpha \, k_a \, U_{a,b} + \beta$) substitution---is used, and the fan model is taken directly from the system identification step. The reason that the current method was opted for was to make the approximation of the linear steady-state response better, allowing for a nonzero $y$-intercept, and to take the average across the fans' range rather than from a single measurement of the dynamic response---in the case of the direct system identification model, the linear response is only parameterised by the gain, missing out on the flexibility afforded by the $\beta$ term.
+An equivalent method for this modification is to make the additional states the fan forces $F_{a,b}$, rather than delayed inputs, this was experimented with. In that case, the original model in Mini Assignment 1---before the ($\alpha \, k_a \, U_{a,b} + \beta$) substitution---is used, and the fan model is taken directly from the system identification step. The reason that the current method was opted for is to improve the approximation of the linear steady-state response, allowing for a nonzero $y$-intercept, and to take the average across the fans' range, rather than from a single measurement of the dynamic response. In the case of the direct system identification model, the linear response is only parameterised by the gain, missing out on the flexibility afforded by the $\beta$ term.
 
 \subsubsection{Experiment on the Real System}
-To demonstrate the improvement in comparison to the original, an experiment was designed using the real helicopter pitch axis. As opposed to an experiment involving the other axes, the pitch axis alone is ideal because:
+To demonstrate the improvement in comparison to the original model, an experiment was designed using the real helicopter pitch axis. As opposed to an experiment involving the other axes, the pitch axis alone is ideal because:
 
 \begin{itemize}
     \item The modelled pitch axis dynamics do not depend on the other axes
     \item The modelled dynamics are linear (unlike the other two)
-    \item It can be easily isolated by holding the other two axes still
-    \item The amount of compounding model mismatch is minimal as the fans are rigidly attached to the axis.
+    \item Model mismatch is reduced because there are less moving parts
+    \item It can be easily isolated by holding the other two axes still.
 \end{itemize}
 
-\noindent If the model is improved, the simulated response should match real response more closely than the original model.
+\noindent If the model is improved, the simulated response should match the real response more closely than the original model.
 
 \begin{figure}[H]
 \input{Fig/pitch_experiment.tex}
 \caption{Pitch axis experimental data with augmented model vs old model}\label{fig:pitch_exp}
 \end{figure}
 
-\noindent During the experiment, sine and cosine inputs were applied to the helicopter (with the fans out of phase with each other) to oscillate the pitch axis. The amplitude of the input signals were in the range $[0.3, \; 10]$ to eliminate the nonlinear fan behaviour below the voltage threshold, the frequency of the signals is 2 rad/s---this was determined manually to get a response that spanned a large portion of the pitch axis. Using the same series of inputs, the response from each linear model was simulated. Figure~\ref{fig:pitch_exp} illustrates the simulated responses in comparison to the test data.
-
-The MSE of the original model response was 0.8358, and the MSE of the new model was 0.0945---this shows a marked improvement. Since the other axes are functions of the pitch axis, it is a reasonable conclusion that the accuracy of the model is improved overall.
+\noindent During the experiment, sine and cosine inputs were applied to the fans (out of phase with each other) to oscillate the pitch axis. The amplitude of the input signals were in the range $[0.3, \; 10]$ to eliminate the nonlinear fan behaviour below the voltage threshold, the frequency of the signals is 2 rad/s---this was determined manually to get a response that spanned a large portion of the pitch axis. Using the same series of inputs, the response from each linear model was simulated.~\autoref{fig:pitch_exp} illustrates the simulated responses in comparison to the test data. The MSE of the original model response was 0.8358, and the MSE of the new model was 0.0945---this shows a marked improvement. Since the other axes are functions of the pitch axis, it is a reasonable conclusion that the accuracy of the model is improved overall.
 
 \subsection{Minor Model Improvements}
 
-In the original material, the inertia of the travel axis, $J_{\Theta}$, was assumed equal to the inertia of the elevation axis, $J_{E} = 2 m_1 l_1^2 + m_2 l_3^2$. The equation of the inertia given a set of point masses, $m_i$ and their distances to the axis, $l_i$, is $\sum {m_i l_i^2}$. At the level hover condition, looking along the travel axis, the distance from a fan with mass $m_1$, is $l_F = \sqrt{l_1^2 + l_2^2}$. This resolves to $J_{\Theta} = 2 m_1 l_1^2 + 2 m_1 l_2^2 + m_2 l_3^2$, which has an extra term.
+In the original material, the inertia of the travel axis, $J_{\Theta}$, was assumed equal to the inertia of the elevation axis, $J_{E} = 2 m_1 l_1^2 + m_2 l_3^2$. The equation of the inertia given a set of point masses, $m_i$ and their distances to the axis, $l_i$, is $\sum {m_i l_i^2}$. At the level hover condition, looking along the travel axis, the distance from a fan with mass $m_1$, is $l_F = \sqrt{l_1^2 + l_2^2}$. This resolves to $J_{\Theta} = 2 m_1 (l_1^2 + l_2^2) + m_2 l_3^2$, which has an extra term in $l_2$.
 
-As briefly mentioned prior, spring and damping effects were added to the elevation and travel axes. To converge on a set of spring and damping coefficients (for all axes), a test output log---during normal controlled operation---was used to compare against a script simulation using the logged inputs. The simulation implemented nonlinear dynamics through a MATLAB function handle and 4th-order Runge-Kutta integration.
+As briefly mentioned prior, spring and damping effects were added to the elevation and travel axes. To converge on a set of spring and damping coefficients for all axes, a test input/output log (during normal controlled operation) was used to compare against a script simulation using the logged inputs, with these parameters adjusted by hand to fit. System identification techniques were experimented with to identify these parameters, but the hand-adjustment gave better results. The simulation implemented nonlinear dynamics through a MATLAB function handle and 4th-order Runge-Kutta integration.

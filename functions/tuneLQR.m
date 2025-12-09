@@ -17,8 +17,8 @@ end
         %% Cost Test
         % Cost_rb = [1; 0; 20 
         %            10; 0; 50]'; % Cost for rigid body states
-        Cost_rb = [1; 0; 200 
-                   1; 10; 100]'; % Cost for rigid body states
+        Cost_rb = [1; 0; 50 
+                   1; 5; 250]'; % Cost for rigid body states
 
         if nx > 8
             Cost_V = [0 0]; % Cost for the voltages

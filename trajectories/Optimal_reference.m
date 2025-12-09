@@ -36,7 +36,7 @@ t_in_opt_time = max(t_in_opt);
 
 x_in_opt = getInterpolatedTrajectory(solution, nx_ref, Ts);
 
-N_init = round(15 / Ts); % intial wait
+N_init = round(20 / Ts); % intial wait
 N_wait = round((40 - 20 - t_out_opt_time) / Ts);
 
 s_max = max(x_out_opt(3, :));

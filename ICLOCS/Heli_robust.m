@@ -70,8 +70,8 @@ problem.states.x0u=[x0];
 
 Emin = deg2rad(-10);
 Emax = deg2rad(10);
-Pmin = deg2rad(-30);
-Pmax = deg2rad(30);
+Pmin = deg2rad(-20);
+Pmax = deg2rad(20);
 Tmin = deg2rad(-20);
 Tmax = deg2rad(200);
 
