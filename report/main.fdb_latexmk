@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1765319887.80674 "f:/Documents/GitHub/heli-control/report/main.tex" "main.pdf" "main" 1765319899.5025 0
+["pdflatex"] 1765381891.56457 "f:/Documents/GitHub/heli-control/report/main.tex" "main.pdf" "main" 1765381901.43645 0
   "C:/Users/leeta/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1765288748 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/leeta/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1763655443 12668 f02d350bea95fd310e274aa65dad512b ""
   "C:/Users/leeta/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1763460868 13333512 f2308f0bb47de66504ee817a679153d9 ""
@@ -211,13 +211,13 @@
   "Fig/pitch_experiment.tex" 1765210449 159637 cef8434282716e63a78941539d5c7890 ""
   "Fig/traj2.tex" 1765311866 539837 80160e90d6e267b16e6dceeb75efd003 ""
   "f:/Documents/GitHub/heli-control/report/main.tex" 1765319435 1159 39dfb554fd6b53cf09ae28c13f446887 ""
-  "main.aux" 1765319899 3131 0f5dafdd7a128cb35af25bd45f42a29b "pdflatex"
-  "main.out" 1765319899 2585 f36abfb647430a87a9f73848def13d53 "pdflatex"
+  "main.aux" 1765381901 3131 0f5dafdd7a128cb35af25bd45f42a29b "pdflatex"
+  "main.out" 1765381901 2585 f36abfb647430a87a9f73848def13d53 "pdflatex"
   "main.tex" 1765319435 1159 39dfb554fd6b53cf09ae28c13f446887 ""
-  "main.toc" 1765319899 1400 88e23522d4e2779e24d049789a67725a "pdflatex"
-  "sections/control.tex" 1765319769 6276 8cbe3afb0c3e01d45d02b95664781665 ""
-  "sections/modelling.tex" 1765318858 6129 3bd816a881bd247e0b5ae6d2ddd80085 ""
-  "sections/results.tex" 1765319887 4182 67dce9a139f7f2354478fbfe95fe4ec5 ""
+  "main.toc" 1765381901 1400 88e23522d4e2779e24d049789a67725a "pdflatex"
+  "sections/control.tex" 1765324353 6265 c6e4bab5142c24ada3261c083a167500 ""
+  "sections/modelling.tex" 1765324013 6135 ddf863580668516b7fc23a2080e0bc21 ""
+  "sections/results.tex" 1765381890 4291 236177c4d7448c1ff84b4240d1200d4c ""
   (generated)
   "main.aux"
   "main.log"
