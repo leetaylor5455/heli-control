@@ -27,7 +27,7 @@ end
         
         end
         
-        Cost_I = [50 50]; % Integral costs
+        Cost_I = [20 50]; % Integral costs
     else
         %% Cost Sim
         Cost_rb = [10; 0; 20 

@@ -6,7 +6,7 @@ f_start = 0;          % Hz
 f_end   = 1;           % Hz
 A_min   = 0.3;          % minimum amplitude
 A_max   = 10;           % maximum amplitude
-tsim = 30;           % duration of sweep in seconds
+tsim = 18;           % duration of sweep in seconds
 
 % Time vector
 tt_exp = 0:Ts:tsim;
@@ -76,20 +76,21 @@ p_sim_fn = sprintf('%s\\data\\Pitch_sine.xlsx', root_dir);
 data_p = readmatrix(p_sim_fn);
 p_log_test = pi/180 * data_p(:, 2).' - 0.1;
 % p_log_smoothed = movmean(p_log_test, 20);
-p_log_smoothed = p_log_test;
+p_log_smoothed = p_log_test(1:round(tsim/Ts)+1);
 
 figure
-plot(tt_exp.', x_rb_log(2, :), '--', 'LineWidth', 1.5)
+plot(tt_exp, p_log_smoothed, '-.', 'Color', 'black', 'LineWidth', 1)
 hold on; grid on;
-plot(tt_exp.', x_comb_log(2, :), 'LineWidth', 1.5)
-plot(tt_exp, p_log_smoothed, 'LineWidth', 1.5)
-legend('Original Model', 'Augmented Model', 'Test (Raw)', ...
+plot(tt_exp.', x_rb_log(2, :), 'LineWidth', 1)
+plot(tt_exp.', x_comb_log(2, :), 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5)
+legend('Test (Raw)', 'Original Model', 'Augmented Model', ...
     'Location', 'southeast')
 title('Pitch Models vs Test')
 xlabel('Time (s)')
 ylabel('Pitch (rad)')
+ylim([-2.5 2])
 set(gcf, 'position',[0, 0, 650, 300]) % Enlarge
-% matlab2tikz()
+matlab2tikz()
 
 mse(x_rb_log(2, :), p_log_smoothed)
 mse(x_comb_log(2, :), p_log_smoothed)

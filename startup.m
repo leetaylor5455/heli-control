@@ -89,6 +89,12 @@ xf0 = [F_e_real; zeros(fanModelOrder-1, 1)];
 
 x0 = [E0; P0; T0; zeros(5, 1)];
 
+%% LUT
+ss_data = readmatrix('Steady State Measurements.xlsx');
+
+inputs = ss_data(:, 1);
+outputs = ss_data(:, 2);
+
 %% Setup LGQ Controller Model
 IntegralActionModel;
 

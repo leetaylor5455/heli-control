@@ -1,15 +1,25 @@
-data = readmatrix('data/traj_3.xlsx');
+data_test = readmatrix('data/traj_4.xlsx');
+data_sim = readmatrix('data/traj_sim.xlsx');
 
 bounds = 1:round(60/Ts);
 
-tt = data(bounds, 1);
-P = data(bounds, 2);
-E = data(bounds, 3);
-T = data(bounds, 4);
-Er = data(bounds,5);
-Tr = data(bounds,6);
-Ua = data(bounds,7);
-Ub = data(bounds,8);
+ttt = data_test(bounds, 1);
+Pt = data_test(bounds, 2);
+Et = data_test(bounds, 3);
+Tt = data_test(bounds, 4);
+Ert = data_test(bounds,5);
+Trt = data_test(bounds,6);
+Uat = data_test(bounds,7);
+Ubt = data_test(bounds,8);
+
+tts = data_sim(:, 1);
+Ps = data_sim(:, 4);
+Es = data_sim(:, 2);
+Tsi = data_sim(:, 3);
+Ers = data_sim(:,5);
+Trs = data_sim(:,6);
+Uas = data_sim(:,7);
+Ubs = data_sim(:,8);
 
 figure
 
@@ -18,8 +28,9 @@ msize = 8;
 
 %% Elevation
 subplot(4, 1, 1)
-plot(tt, E+1.2, 'LineWidth', 1.5);
+plot(ttt, Et+1.2, 'LineWidth', 1.5);
 grid on; hold on
+% plot(tts, 180/pi * Es, 'LineWidth', 1.5);
 title('Test Trajectory')
 % Bounds
 line([0 60], [10 10], 'LineStyle', '--', 'Color','black', 'LineWidth', 1.5)
@@ -41,9 +52,10 @@ ylim([-20 20])
 
 %% Travel
 subplot(4, 1, 2)
-plot(tt, T, 'LineWidth', 1.5);
+plot(ttt, 180/pi*Trt, '-.', 'Color', 'black', 'LineWidth', 1.5)
 grid on; hold on
-plot(tt, 180/pi*Tr, ':', 'LineWidth', 1.5)
+plot(tts, 180/pi*Tsi, '-', 'LineWidth', 1)
+plot(ttt, Tt, 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5);
 
 % Bounds
 line([0 20], [20 20], 'LineStyle', '--', 'Color','black', 'LineWidth', 1.5)
@@ -62,28 +74,32 @@ plot(Tcpx, Tcpyl, '^', 'MarkerSize', msize, 'Color', 'black')
 
 xlabel('Time (s)')
 ylabel('$\Theta$ (deg)', 'Interpreter','latex')
-legend('Test', 'Reference', 'Location', 'east')
+legend('Reference', 'Simulation', 'Test', 'Location', 'northeast')
 % yticks(-20:20:200)
 ylim([-45 225])
 
 %% Pitch
 subplot(4, 1, 3)
-plot(tt, P, 'LineWidth', 1.5);
-grid on
+plot(ttt, Pt, 'LineWidth', 1.5);
+hold on; grid on
+% plot(tts, 180/pi*Ps, 'LineWidth', 1.5);
 xlabel('Time (s)')
 ylabel('$\Psi$ (deg)', 'Interpreter','latex')
 ylim([-60 30])
 
 %% U
 subplot(4, 1, 4)
-plot(tt, Ua, 'LineWidth', 1.5);
+plot(ttt, Uat, 'LineWidth', 1.5);
 grid on; hold on
-plot(tt, Ub, 'LineWidth', 1.5);
+plot(ttt, Ubt, 'LineWidth', 1.5);
 xlabel('Time (s)')
 ylabel('$U$ (V)', 'Interpreter','latex')
 legend('$U_a$', '$U_b$', 'Interpreter','latex', 'Location','southeast')
 ylim([0 12])
 
-set(gcf, 'position',[0, 0, 680, 900]) % Enlarge
+set(gcf, 'position',[0, 0, 680, 880]) % Enlarge
 
-matlab2tikz()
+% matlab2tikz()
+
+u_sata = 100 * sum(Uat == 10) / numel(Uat)
+u_satb = 100 * sum(Ubt == 10) / numel(Ubt)

@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1765381891.56457 "f:/Documents/GitHub/heli-control/report/main.tex" "main.pdf" "main" 1765381901.43645 0
+["pdflatex"] 1765538044.88779 "f:/Documents/GitHub/heli-control/report/main.tex" "main.pdf" "main" 1765538056.29695 0
   "C:/Users/leeta/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1765288748 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/leeta/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1763655443 12668 f02d350bea95fd310e274aa65dad512b ""
   "C:/Users/leeta/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1763460868 13333512 f2308f0bb47de66504ee817a679153d9 ""
@@ -208,16 +208,16 @@
   "C:/Users/leeta/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/leeta/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729261622 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "Fig/diagram.png" 1765222539 139583 bd6cdc0887628dfc4977b9d993f81c56 ""
-  "Fig/pitch_experiment.tex" 1765210449 159637 cef8434282716e63a78941539d5c7890 ""
-  "Fig/traj2.tex" 1765311866 539837 80160e90d6e267b16e6dceeb75efd003 ""
+  "Fig/pitch_experiment.tex" 1765538044 95411 86ffe97ba141964b3c21f99acd8b01d1 ""
+  "Fig/traj3.tex" 1765482667 644809 2c0f096b4983d910864bd282f9cd9344 ""
   "f:/Documents/GitHub/heli-control/report/main.tex" 1765319435 1159 39dfb554fd6b53cf09ae28c13f446887 ""
-  "main.aux" 1765381901 3131 0f5dafdd7a128cb35af25bd45f42a29b "pdflatex"
-  "main.out" 1765381901 2585 f36abfb647430a87a9f73848def13d53 "pdflatex"
+  "main.aux" 1765538055 3131 0f5dafdd7a128cb35af25bd45f42a29b "pdflatex"
+  "main.out" 1765538055 2585 f36abfb647430a87a9f73848def13d53 "pdflatex"
   "main.tex" 1765319435 1159 39dfb554fd6b53cf09ae28c13f446887 ""
-  "main.toc" 1765381901 1400 88e23522d4e2779e24d049789a67725a "pdflatex"
+  "main.toc" 1765538055 1400 88e23522d4e2779e24d049789a67725a "pdflatex"
   "sections/control.tex" 1765324353 6265 c6e4bab5142c24ada3261c083a167500 ""
   "sections/modelling.tex" 1765324013 6135 ddf863580668516b7fc23a2080e0bc21 ""
-  "sections/results.tex" 1765381890 4291 236177c4d7448c1ff84b4240d1200d4c ""
+  "sections/results.tex" 1765537115 4406 95475c2fe3a84739a90d0244b8a0564b ""
   (generated)
   "main.aux"
   "main.log"

@@ -358,9 +358,9 @@ INPUT C:\Users\leeta\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tf
 INPUT .\sections\results.tex
 INPUT .\sections\results.tex
 INPUT sections\results.tex
-INPUT .\Fig\traj2.tex
-INPUT .\Fig\traj2.tex
-INPUT Fig\traj2.tex
+INPUT .\Fig\traj3.tex
+INPUT .\Fig\traj3.tex
+INPUT Fig\traj3.tex
 INPUT main.aux
 INPUT .\main.out
 INPUT .\main.out
